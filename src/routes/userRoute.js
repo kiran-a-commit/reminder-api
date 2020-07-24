@@ -15,7 +15,10 @@ router.post('/createUser', async (req, res) => {
     await User.findOne({userId: userId}, async (error, isUserFound) => {
          if(isUserFound) {
               console.log("User already present. Just login")
-         } else {
+         } else if(error) {
+              res.status(500).send(error);
+         } 
+         else {
               const saveUser  = await user.save();
               res.status(200).send({success: saveUser});
          }
