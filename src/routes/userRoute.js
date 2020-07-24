@@ -2,6 +2,10 @@ const User = require('../models/User');
 const express = require('express');
 const router = express.Router();
 
+router.get('/user', async (req, res) => {
+     res.status(200).send("Success");
+})
+
 router.post('/createUser', async (req, res) => {
      req.header("Access-Control-Allow-Origin", "*")
     console.log("Came here")
