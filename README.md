@@ -1,2 +1,2 @@
-# reminder-api
-Backend API to serve the front end.
+# Reminder-API
+Powers the frontend for the application https://reminder-notes.herokuapp.com/
