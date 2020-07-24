@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const userRouter = require('./routes/userRoute');
-const taskRouter = require('./routes/taskRoute');
+const userRouter = require('./src/routes/userRoute');
+const taskRouter = require('./src/routes/taskRoute');
 const port = process.env.PORT || 3080;
 
 const app = express();
@@ -24,4 +24,9 @@ connection.once('open', function() {
 
 app.listen(port, () => {
     console.log("Connected to port =", port);
+})
+
+process.on('uncaughtException', () => {
+    console.log("Exception")
+
 })
