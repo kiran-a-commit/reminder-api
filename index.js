@@ -28,7 +28,7 @@ function startKeepAlive() {
     setInterval(function() {
         var options = {
             host: 'https://ki-reminder-api.herokuapp.com',
-            port: PORT,
+            port: 80,
             path: '/'
         };
         http.get(options, function(res) {
@@ -43,7 +43,7 @@ function startKeepAlive() {
         }).on('error', function(err) {
             console.log("Error: " + err.message);
         });
-    }, 10 * 60 * 1000); // load every 10 minutes
+    }, 20 * 60 * 1000); // load every 20 minutes
 }
 
 startKeepAlive();
@@ -52,7 +52,7 @@ app.listen(port, () => {
     console.log("Connected to port =", port);
 })
 
-process.on('uncaughtException', () => {
-    console.log("Exception")
+process.on('uncaughtException', (error) => {
+    console.log("Exception= ", error)
 
 })
