@@ -22,6 +22,32 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
+var http = require('http'); //importing http
+
+function startKeepAlive() {
+    setInterval(function() {
+        var options = {
+            host: 'https://ki-reminder-api.herokuapp.com',
+            port: PORT,
+            path: '/'
+        };
+        http.get(options, function(res) {
+            res.on('data', function(chunk) {
+                try {
+                    // optional logging... disable after it's working
+                    console.log("HEROKU RESPONSE: " + chunk);
+                } catch (err) {
+                    console.log(err.message);
+                }
+            });
+        }).on('error', function(err) {
+            console.log("Error: " + err.message);
+        });
+    }, 10 * 60 * 1000); // load every 10 minutes
+}
+
+startKeepAlive();
+
 app.listen(port, () => {
     console.log("Connected to port =", port);
 })
