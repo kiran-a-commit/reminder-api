@@ -60,6 +60,7 @@ bot.onText(/\myTasks/, async (msg, match) => {
 
  scheduler = async (taskIdString, reminder_time) => {
      var jobId = taskIdString
+     console.log("Job Id = ", jobId)
      const hrs = reminder_time.substr(0, reminder_time.indexOf(':'));
      console.log(hrs)
      const min = reminder_time.substr(reminder_time.indexOf(':') + 1, reminder_time.length)
@@ -71,6 +72,8 @@ bot.onText(/\myTasks/, async (msg, match) => {
             rule.tz = 'Asia/Kolkata';
             schedule.scheduleJob(jobId, rule, async function(){
                 const task = await Task.findById(jobId);
+                console.log("Task to schedule = ", task);
+                console.log("Bot = ", bot)
                 bot.sendMessage(task.owner, "1." + '\n' + "Description: " + task.reminder_description + '\n' + 
                 "Responsible: " + task.reminder_responsible + '\n' + 
                 "Frequency: " + task.reminder_frequency + 
