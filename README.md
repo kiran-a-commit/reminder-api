@@ -1,2 +1,2 @@
 # Reminder-API
-Powers the frontend for the application https://reminder-notes.herokuapp.com/
+Powers the frontend for the application http://gkkap.s3-website.us-east-2.amazonaws.com/
