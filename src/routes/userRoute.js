@@ -6,7 +6,6 @@ router.get('/user', async (req, res) => {
      User.find().then((users) => {
           res.status(200).send(users);
      })
-     //res.status(200).send("Success");
 })
 
 router.post('/createUser', async (req, res) => {
