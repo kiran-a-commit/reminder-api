@@ -2,9 +2,15 @@ const User = require('../models/User');
 const express = require('express');
 const router = express.Router();
 
-router.get('/user', async (req, res) => {
+router.get('/', async (req, res) => {
      User.find().then((users) => {
           res.status(200).send(users);
+     })
+})
+
+router.get('/user', async (req, res) => {
+     User.find().then(() => {
+          res.status(200).send("Welcome to Reminder Application!!");
      })
 })
 
