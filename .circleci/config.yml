@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  node: circleci/node@3.0.0
 jobs:
   deploy:
     docker:
