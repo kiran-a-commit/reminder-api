@@ -7,7 +7,10 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      — run: npm test
+      - run:
+          name: Run Unit Tests
+          command: |
+            npm test
       - run:
           name: Install awscli
           command: |
