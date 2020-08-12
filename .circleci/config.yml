@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Deploy to EB if branch is Master
           command: |
-            eb use reminder-api-dev  --region ap-south-1
+            eb use reminder-api-dev
             eb deploy -v --staged
  
 workflows:
