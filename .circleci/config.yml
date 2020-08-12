@@ -28,12 +28,10 @@ jobs:
             eb deploy -v --staged
             
 workflows:
-  version: 2
-  node-tests:
-    jobs:
-      - node/test
+  version: 2     
   build-deploy:
     jobs:
+      - node/test
       - deploy:
           filters:
             branches:
