@@ -6,6 +6,8 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - run: npm install
+      — run: npm test
       - run:
           name: Install awscli
           command: |
