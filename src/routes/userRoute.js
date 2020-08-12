@@ -16,7 +16,7 @@ router.get('/user', async (req, res) => {
 
 router.post('/createUser', async (req, res) => {
      req.header("Access-Control-Allow-Origin", "*")
-    console.log("Hello i Came here")
+    console.log("Came here")
     const userId = req.body.userId;
     console.log(req.body);
     const user = new User({userId: userId});
