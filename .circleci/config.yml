@@ -1,10 +1,9 @@
 version: 2
-orbs:
-  node: circleci/node@3.0.0
 jobs:
   deploy:
     docker:
       - image: circleci/python:2.7
+      - image: circleci/node:6.10
     working_directory: ~/repo
     steps:
       - checkout
