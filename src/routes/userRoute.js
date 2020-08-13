@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-     User.find().then((users) => {
-          res.status(200).send(users);
+     User.find().then(() => {
+          res.status(200).send("Welcome to Reminder Application!!");
      })
 })
 
